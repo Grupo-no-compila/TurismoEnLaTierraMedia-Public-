@@ -1,7 +1,9 @@
 package turismoEnLaTierraMedia;
 
 public class PromocionAbsoluta extends Promocion {
-
+	
+	private int precioFinal;
+	
 	@Override
 	public int precioFinal() {
 		// TODO Auto-generated method stub

@@ -1,7 +1,9 @@
 package turismoEnLaTierraMedia;
 
 public class PromocionPorcentual extends Promocion {
-
+	
+	private double porcentajeDescuento;
+	
 	@Override
 	public int precioFinal() {
 		// TODO Auto-generated method stub
