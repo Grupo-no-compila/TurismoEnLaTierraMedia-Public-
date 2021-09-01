@@ -1,17 +1,23 @@
 package turismoEnLaTierraMedia;
 
+import java.util.List;
+
 public abstract class Promocion {
-	protected Atraccion[] atraccion; 
+	protected List <Atraccion> atracciones; 
 	private TipoDeAtraccion tipo;
 	
 	
-	public int precioFinal() {
-		// TODO Auto-generated method stub
-		return 0;
+	public Promocion(List<Atraccion> atraccion, TipoDeAtraccion tipo) {
+		this.atracciones = atraccion;
+		this.tipo = tipo;
 	}
 
-	public double tiempoTotal() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+	protected abstract void precioFinal(); 
+
+	protected abstract void tiempoTotal();
+
+	protected abstract double getTiempo();
+
+	protected abstract int getCosto();
+
 }

@@ -43,6 +43,14 @@ public class Atraccion implements Comparable <Atraccion>{
 		return costo == other.costo && cupo == other.cupo && Objects.equals(nombre, other.nombre)
 				&& Double.doubleToLongBits(tiempo) == Double.doubleToLongBits(other.tiempo) && tipo == other.tipo;
 	}
+
+	public double getTiempo() {
+		return this.tiempo;
+	}
+
+	public int getCosto() {
+		return this.costo;
+	}
 	
 	
 }
