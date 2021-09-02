@@ -2,22 +2,37 @@ package turismoEnLaTierraMedia;
 
 import java.util.List;
 
-public abstract class Promocion {
+public abstract class Promocion implements Sugerible {
 	protected List <Atraccion> atracciones; 
-	private TipoDeAtraccion tipo;
-	
+	protected TipoDeAtraccion tipo;
+	protected double tiempoTotal;
 	
 	public Promocion(List<Atraccion> atraccion, TipoDeAtraccion tipo) {
 		this.atracciones = atraccion;
 		this.tipo = tipo;
+	} 
+	
+	
+	public boolean esPromocion() {
+		return true;
 	}
-
-	protected abstract void precioFinal(); 
-
-	protected abstract void tiempoTotal();
-
-	protected abstract double getTiempo();
-
-	protected abstract int getCosto();
-
+	
+	public boolean hayCupo() {
+		for(Atraccion a: this.atracciones) {
+			if(!a.hayCupo()) return false;
+		}
+		return true;
+	}
+	
+	public double getTiempo() {
+		for (int i=0; i<this.atracciones.size();i++) {
+		tiempoTotal += this.atracciones.get(i).getTiempo();
+	   }
+	 return tiempoTotal;	
+	}
+	
+	public TipoDeAtraccion getTipo() {
+		
+		return this.tipo;
+	}
 }

@@ -2,19 +2,13 @@ package turismoEnLaTierraMedia;
 
 import java.util.Objects;
 
-public class Atraccion implements Comparable <Atraccion>{
+public class Atraccion implements Sugerible {
 	private int costo;
 	private String nombre;
 	private TipoDeAtraccion tipo;
 	private double tiempo;
 	private int cupo;
 	
-	
-	@Override
-	public int compareTo(Atraccion o) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
 	
 	public boolean hayCupo() {
 		return true;
@@ -55,6 +49,12 @@ public class Atraccion implements Comparable <Atraccion>{
 	
 	public TipoDeAtraccion getTipo() {
 		 return this.tipo;
+	}
+
+	@Override
+	public boolean esPromocion() {
+		
+		return false;
 	}
 	
 }

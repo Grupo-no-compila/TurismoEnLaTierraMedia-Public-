@@ -38,4 +38,8 @@ public class Usuario {
 	public boolean puedeCostear(Atraccion atraccion) {
 		return (atraccion.getCosto()<= this.presupuesto);
 	}
+	
+	public TipoDeAtraccion getTipoFavorito() {
+	return this.atraccionFavorita;
+	}
 }
