@@ -53,4 +53,8 @@ public class Atraccion implements Comparable <Atraccion>{
 	}
 	
 	
+	public TipoDeAtraccion getTipo() {
+		 return this.tipo;
+	}
+	
 }
