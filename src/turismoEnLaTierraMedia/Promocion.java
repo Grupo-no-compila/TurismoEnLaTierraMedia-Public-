@@ -6,8 +6,10 @@ public abstract class Promocion implements Sugerible {
 	protected List <Atraccion> atracciones; 
 	protected TipoDeAtraccion tipo;
 	protected double tiempoTotal;
+	protected String nombreDeLaPromo;
 	
-	public Promocion(List<Atraccion> atraccion, TipoDeAtraccion tipo) {
+	public Promocion(String nombreDeLaPromo, List<Atraccion> atraccion, TipoDeAtraccion tipo) {
+		this.nombreDeLaPromo = nombreDeLaPromo;
 		this.atracciones = atraccion;
 		this.tipo = tipo;
 	} 

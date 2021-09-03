@@ -1,0 +1,4 @@
+Aventura,Bosque Negro,Mordor,20
+Degustacion,Lothlórien,La Comarca,36
+paisaje,Minas Tirith,Abismo de Helm,Erebor.
+aventura,asd-sad-asd,30

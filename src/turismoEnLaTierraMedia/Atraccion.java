@@ -10,6 +10,15 @@ public class Atraccion implements Sugerible {
 	private int cupo;
 	
 	
+	
+	public Atraccion(String nombre, int costo, double tiempo, int cupo, TipoDeAtraccion tipo) {
+		this.nombre = nombre;
+		this.costo = costo;
+		this.tiempo = tiempo;
+		this.cupo = cupo;
+		this.tipo = tipo;
+	}
+
 	public boolean hayCupo() {
 		return true;
 	}
@@ -56,5 +65,12 @@ public class Atraccion implements Sugerible {
 		
 		return false;
 	}
+	
+	@Override
+	public String toString() {
+		return "Atraccion " + nombre + ", Costo: " + costo + ", Tiempo: " + tiempo + ", Cupo: " + cupo + ", tipo: "
+				+ tipo;
+	}
+
 	
 }

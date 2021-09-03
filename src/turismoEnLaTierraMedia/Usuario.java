@@ -7,6 +7,7 @@ public class Usuario {
 	private int presupuesto;
 	private double tiempoDisponible;
 	private TipoDeAtraccion atraccionFavorita;
+	
 	private List <Atraccion> atraccionComprada;
 	
 	
@@ -20,15 +21,20 @@ public class Usuario {
 	public void comprarAtraccion(Atraccion atraccion) {
 		this.tiempoDisponible -= atraccion.getTiempo();
 		this.presupuesto -= atraccion.getCosto();
+		
 	}
 	
 	public void comprarPromocion(Promocion promocion) {
 		this.tiempoDisponible -= promocion.getTiempo();
 		this.presupuesto -= promocion.getCosto();
+		
 	}
 	
 	public boolean yaCompro(Atraccion atraccion) {
-		return atraccionComprada.contains(atraccion); 		 		
+		if(this.atraccionComprada == null) {
+			return false;
+		}else
+			return atraccionComprada.contains(atraccion);
 	}
 	
 	public boolean tieneTiempo(Atraccion atraccion) {
@@ -42,4 +48,14 @@ public class Usuario {
 	public TipoDeAtraccion getTipoFavorito() {
 	return this.atraccionFavorita;
 	}
+	public String getNombre() {
+		return this.nombre;
+	}
+	
+	@Override
+	public String toString() {
+		return "Usuario: " + nombre + ", Presupuesto: " + presupuesto + ", Tiempo Disponible: " + tiempoDisponible
+				+ ", Atraccion Favorita: " + atraccionFavorita;
+	}
+	
 }

@@ -1,0 +1,5 @@
+Daniela,1,3,PAISAJE
+Facundo,11,5.5,AVENTURA
+Larry,35,5,DEGUSTACION
+Jessica,25,8,AVENTURA
+Francisco,5,2.5,PAISAJE

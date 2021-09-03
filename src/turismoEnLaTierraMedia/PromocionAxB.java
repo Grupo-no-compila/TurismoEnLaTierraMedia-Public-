@@ -6,9 +6,10 @@ public class PromocionAxB extends Promocion {
 	//la atraccion gratis la pasamos por archivo (la ultima atraccion)
 	
 	private int precioFinal;
+
 	
-	public PromocionAxB(List<Atraccion> atracciones, TipoDeAtraccion tipo) {
-		super(atracciones, tipo);
+	public PromocionAxB(String nombreDeLaPromo, List<Atraccion> atracciones, TipoDeAtraccion tipo) {
+		super(nombreDeLaPromo, atracciones, tipo);
 	}
 
 
