@@ -4,7 +4,7 @@ import java.util.Objects;
 
 public class Atraccion implements Sugerible {
 	private int costo;
-	private String nombre;
+	protected String nombre;
 	private TipoDeAtraccion tipo;
 	private double tiempo;
 	private int cupo;
@@ -70,6 +70,10 @@ public class Atraccion implements Sugerible {
 	public String toString() {
 		return "Atraccion " + nombre + ", Costo: " + costo + ", Tiempo: " + tiempo + ", Cupo: " + cupo + ", tipo: "
 				+ tipo;
+	}
+
+	public String getNombre() {
+		return this.nombre;
 	}
 
 	

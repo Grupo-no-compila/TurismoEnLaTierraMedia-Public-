@@ -19,9 +19,19 @@ public class PromocionPorcentual extends Promocion {
 		double precioARedondear = 0;
 		for (int i = 0; i < super.atracciones.size(); i++) {
 			precioFinal += super.atracciones.get(i).getCosto();
-			precioARedondear = precioFinal*(1-porcentajeDescuento);
+			precioARedondear = -((precioFinal*(porcentajeDescuento/100))-precioFinal);
 			
 		}
 		return  (int) Math.round(precioARedondear);
 	}
+
+
+	@Override
+	public String toString() {
+		return "PromocionPorcentual [Nombre De La Promo: " + nombreDeLaPromo + ", Atracciones: " + atracciones
+				+ ", Precio Final: " + this.getCosto() + ", tipo: " + tipo + ", tiempoTotal: " + this.getTiempo()
+				+ ", Porcentaje De Descuento: " + porcentajeDescuento + "]";
+	}
+	
+	
 }

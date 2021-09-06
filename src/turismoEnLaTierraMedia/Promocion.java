@@ -34,7 +34,7 @@ public abstract class Promocion implements Sugerible {
 	}
 	
 	public TipoDeAtraccion getTipo() {
-		
 		return this.tipo;
 	}
+	
 }

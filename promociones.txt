@@ -1,4 +1,4 @@
-Aventura,Bosque Negro,Mordor,20
-Degustacion,Lothlórien,La Comarca,36
-paisaje,Minas Tirith,Abismo de Helm,Erebor.
-aventura,asd-sad-asd,30
+Porcentual,Oscuros,AVENTURA,20,Bosque Negro,Mordor
+Absoluta,Elfos,DEGUSTACION,36,Lothlórien,La Comarca
+AxB,Hombres,PAISAJE,0,Minas Tirith,Abismo de Helm,Erebor
+Absoluta,Elfos,DEGUSTACION,26,Lothlórien,La Comarca

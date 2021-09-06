@@ -20,4 +20,16 @@ public class PromocionAxB extends Promocion {
 		}
 		return this.precioFinal;
 	}
+	
+
+
+	@Override
+	public String toString() {
+		
+		return "PromocionAxB [Nombre De La Promo: " + nombreDeLaPromo + ", Atracciones Incluidas: " +
+				atracciones + ", tipo : " + tipo
+				+ ", tiempoTotal: " + this.getTiempo() + ", Precio Total: " + this.getCosto() + "]";
+	}
+	
+	
 }
