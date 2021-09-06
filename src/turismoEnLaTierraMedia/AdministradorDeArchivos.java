@@ -73,5 +73,61 @@ public class AdministradorDeArchivos {
 		
 		return usuarios;
 	}
+	
+	public static List<Promocion> leerPromociones() {
+		File f = new File("promociones.txt");
+		Scanner sc;
+		String[] line;
+		List<Promocion> promociones = new LinkedList<Promocion>();
+		List<Atraccion> atraccionesPromo = new LinkedList<Atraccion>();
+		List<Atraccion> listaDeAtracciones = leerAtracciones();
+
+		try {
+			sc = new Scanner(f);
+
+			while (sc.hasNextLine()) {
+				line = sc.nextLine().split(",");
+
+				for (Atraccion a : listaDeAtracciones) {
+					for (int i = 3; i < line.length; i++) {
+						if (a.getNombre().equals(line[i])) {
+							atraccionesPromo.add(a);
+						}
+					}
+				}
+
+				if (line[0].equals("Porcentual")) {
+					promociones.add(new PromocionPorcentual(line[1], // nombre
+							atraccionesPromo, // atracciones
+							TipoDeAtraccion.valueOf(line[2]), // tipo de atraccion
+							Integer.valueOf(line[3])// porcentaje de descuento
+					));
+				}
+				if (line[0].equals("Absoluta")) {
+					promociones.add(new PromocionAbsoluta(line[1], // nombre
+							atraccionesPromo, // atracciones
+							TipoDeAtraccion.valueOf(line[2]), // tipo de atraccion
+							Integer.valueOf(line[3])// precio final
+					));
+				}
+				if (line[0].equals("AxB")) {
+					promociones.add(new PromocionAxB(line[1], // nombre
+							atraccionesPromo, // atracciones
+							TipoDeAtraccion.valueOf(line[2]) // tipo de atraccion
+					));
+				}
+
+				line = null;
+				atraccionesPromo = new LinkedList<Atraccion>();
+			}
+			sc.close();
+		} catch (FileNotFoundException e) {
+			System.err.println(e.getMessage());
+		} catch (InputMismatchException e) {
+			System.err.println(e.getMessage());
+		}
+
+		return promociones;
+	}
 }
 	
