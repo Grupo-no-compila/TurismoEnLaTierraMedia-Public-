@@ -2,6 +2,7 @@ package turismoEnLaTierraMedia;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import java.util.InputMismatchException;
 import java.util.LinkedList;
 import java.util.List;
@@ -129,5 +130,24 @@ public class AdministradorDeArchivos {
 
 		return promociones;
 	}
+
+	public static void escribirItinerarioDeLosUsuarios(List<Usuario> usuarios) {
+		for(Usuario a : usuarios) {
+		File f = new File(a.getNombre() + "Itinerario.txt");
+		PrintWriter pw;
+		
+		try {
+			pw = new PrintWriter(f);
+			
+			pw.write(a.toString()+"\n"+ a.atraccionComprada);
+			
+			pw.close();
+		} catch (FileNotFoundException e) {
+			System.err.println(e.getMessage());
+		}	
+		}
+	}
+
+
 }
 	
