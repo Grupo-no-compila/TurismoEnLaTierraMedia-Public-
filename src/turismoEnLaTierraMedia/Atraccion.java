@@ -20,11 +20,10 @@ public class Atraccion implements Sugerible {
 	}
 
 	public boolean hayCupo() {
-		return true;
+		return this.cupo > 0;
 	}
-	
 	public void restarCupo() {
-		
+		this.cupo--;
 	}
 
 
@@ -74,6 +73,11 @@ public class Atraccion implements Sugerible {
 
 	public String getNombre() {
 		return this.nombre;
+	}
+
+	@Override
+	public boolean esOContiene(Sugerible atraccion) {
+		return true;
 	}
 
 	
