@@ -20,7 +20,7 @@ public class ComparadorDeSugeribles implements Comparator<Sugerible>{
 				&& usuario.getTipoFavorito() == s2.getTipo()) 
 			return 1;
 		
-		else if(s1.esPromocion() && !s2.esPromocion()) //Por tipo de suferible
+		else if(s1.esPromocion() && !s2.esPromocion()) //Por tipo de sugerible
 			return -1;
 		
 		else if(!s1.esPromocion() &&  s2.esPromocion())

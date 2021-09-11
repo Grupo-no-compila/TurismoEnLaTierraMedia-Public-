@@ -8,9 +8,7 @@ public class Atraccion implements Sugerible {
 	private TipoDeAtraccion tipo;
 	private double tiempo;
 	private int cupo;
-	
-	
-	
+
 	public Atraccion(String nombre, int costo, double tiempo, int cupo, TipoDeAtraccion tipo) {
 		this.nombre = nombre;
 		this.costo = costo;
@@ -22,16 +20,17 @@ public class Atraccion implements Sugerible {
 	public boolean hayCupo() {
 		return this.cupo > 0;
 	}
+
 	public void restarCupo() {
 		this.cupo--;
 	}
 
+	
 
 	@Override
 	public int hashCode() {
 		return Objects.hash(costo, cupo, nombre, tiempo, tipo);
 	}
-
 
 	@Override
 	public boolean equals(Object obj) {
@@ -42,7 +41,7 @@ public class Atraccion implements Sugerible {
 		if (getClass() != obj.getClass())
 			return false;
 		Atraccion other = (Atraccion) obj;
-		return costo == other.costo && cupo == other.cupo && Objects.equals(nombre, other.nombre)
+		return costo == other.costo && Objects.equals(nombre, other.nombre)
 				&& Double.doubleToLongBits(tiempo) == Double.doubleToLongBits(other.tiempo) && tipo == other.tipo;
 	}
 
@@ -53,18 +52,17 @@ public class Atraccion implements Sugerible {
 	public int getCosto() {
 		return this.costo;
 	}
-	
-	
+
 	public TipoDeAtraccion getTipo() {
-		 return this.tipo;
+		return this.tipo;
 	}
 
 	@Override
 	public boolean esPromocion() {
-		
+
 		return false;
 	}
-	
+
 	@Override
 	public String toString() {
 		return "Atraccion " + nombre + ", Costo: " + costo + ", Tiempo: " + tiempo + ", Cupo: " + cupo + ", tipo: "
@@ -76,9 +74,10 @@ public class Atraccion implements Sugerible {
 	}
 
 	@Override
-	public boolean esOContiene(Sugerible atraccion) {
-		return true;
+	public boolean esOContiene(Sugerible sugerencia) {
+		
+		return this.equals(sugerencia);
+				
 	}
 
-	
 }

@@ -5,7 +5,7 @@ import java.util.List;
 
 public interface Sugerible {
 	
-	List <Atraccion> atraccionComprada = new LinkedList<Atraccion>();
+	List <Sugerible> atraccionComprada = new LinkedList<Sugerible>();
 
 	public int getCosto();
 	
@@ -17,7 +17,7 @@ public interface Sugerible {
 	
 	public boolean esPromocion();
 
-	public boolean esOContiene(Sugerible atraccion);
+	public boolean esOContiene(Sugerible sugerencia);
 
 	public void restarCupo();
 

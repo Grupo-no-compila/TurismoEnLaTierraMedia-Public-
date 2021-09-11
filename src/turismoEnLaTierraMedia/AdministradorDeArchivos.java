@@ -139,7 +139,7 @@ public class AdministradorDeArchivos {
 		try {
 			pw = new PrintWriter(f);
 			
-			pw.write(a.toString()+"\n"+ a.atraccionComprada);
+			pw.write(a.toString()+"\n"+ a.atraccionesCompradas);
 			
 			pw.close();
 		} catch (FileNotFoundException e) {

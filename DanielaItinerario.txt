@@ -1,0 +1,2 @@
+Usuario: Daniela, Presupuesto: 0, Tiempo Disponible: 0.5, Atraccion Favorita: PAISAJE
+[Atraccion Erebor, Costo: 12, Tiempo: 3.0, Cupo: 28, tipo: PAISAJE, Atraccion La Comarca, Costo: 3, Tiempo: 6.5, Cupo: 148, tipo: DEGUSTACION]

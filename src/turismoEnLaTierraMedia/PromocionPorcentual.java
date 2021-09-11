@@ -7,6 +7,7 @@ public class PromocionPorcentual extends Promocion {
 	private double porcentajeDescuento;
 	private int precioFinal;
 	
+	
 	public PromocionPorcentual(String nombreDeLaPromo, List<Atraccion> atracciones, TipoDeAtraccion tipo, 
 			double porcentajeDescuento) {
 		super(nombreDeLaPromo, atracciones, tipo);
@@ -28,10 +29,20 @@ public class PromocionPorcentual extends Promocion {
 
 	@Override
 	public String toString() {
-		return "PromocionPorcentual [Nombre De La Promo: " + nombreDeLaPromo + ", Atracciones: " + atracciones
-				+ ", Precio Final: " + this.getCosto() + ", tipo: " + tipo + ", tiempoTotal: " + this.getTiempo()
-				+ ", Porcentaje De Descuento: " + porcentajeDescuento + "]";
+		String nombreDeLasAtracciones = ""; 
+		for(Atraccion a:atracciones) {
+			nombreDeLasAtracciones += a.getNombre() + ", ";
+		}
+		return "PromocionPorcentual: " + nombreDeLaPromo + ", Atracciones: " + nombreDeLasAtracciones
+				+ "Precio Final: " + this.getCosto() + ", Tipo: " + tipo + ", Tiempo Total: " + this.getTiempo()
+				+ ", Porcentaje De Descuento: " + porcentajeDescuento;
 	}
 	
+	@Override
+	public void restarCupo() {
+		for (Atraccion a : super.atracciones) {
+			a.restarCupo();
+		}
+	}
 	
 }

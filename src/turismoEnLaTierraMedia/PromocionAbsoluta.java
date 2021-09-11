@@ -21,8 +21,20 @@ public class PromocionAbsoluta extends Promocion {
 
 	@Override
 	public String toString() {
-		return "PromocionAbsoluta [Nombre De La Promo: " + nombreDeLaPromo + ", atracciones: " + atracciones + ", tipo :" + tipo
-				+ ", tiempoTotal: " + this.getTiempo() + ", Precio Total: " + this.getCosto() + "]";
+		String nombreDeLasAtracciones = ""; 
+		for(Atraccion a:atracciones) {
+			nombreDeLasAtracciones += a.getNombre() + ", ";
+			
+		}
+		return "PromocionAbsoluta: " + nombreDeLaPromo + ", Atracciones: " + nombreDeLasAtracciones + "Tipo :" + tipo
+				+ ", Tiempo Total: " + this.getTiempo() + ", Precio Total: " + this.getCosto();
+	}
+	
+	@Override
+	public void restarCupo() {
+		for (Atraccion a : super.atracciones) {
+			a.restarCupo();
+		}
 	}
 	
 	
