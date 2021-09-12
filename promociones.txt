@@ -2,4 +2,4 @@ Porcentual,Oscuros,AVENTURA,20,Bosque Negro,Mordor
 Absoluta,Elfos,DEGUSTACION,36,Lothlorien,La Comarca
 AxB,Hombres,PAISAJE,0,Minas Tirith,Abismo de Helm,Erebor
 Absoluta,Facundo,DEGUSTACION,26,Lothlorien
-AxB,Hombres,PAISAJE,0,Minas Tirith,Abismo de Helm,Bosque Negro
+AxB,Hombres,PAISAJE,0,Minas Tirith,Abismo de Helm

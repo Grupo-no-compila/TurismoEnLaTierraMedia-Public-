@@ -1,2 +1,17 @@
-Usuario: Jessica, Presupuesto: 1, Tiempo Disponible: 45.5, Atraccion Favorita: AVENTURA
-[Atraccion Mordor, Costo: 25, Tiempo: 3.0, Cupo: 3, tipo: AVENTURA, Atraccion Bosque Negro, Costo: 3, Tiempo: 4.0, Cupo: 11, tipo: AVENTURA, Atraccion La Comarca, Costo: 3, Tiempo: 6.5, Cupo: 148, tipo: DEGUSTACION]
+Usuario: Jessica
+Tipo de atracción preferida: AVENTURA
+Presupuesto Disponible: 170, Tiempo Disponible: 0.5
+
+COMPRO:
+
+1) PromocionPorcentual: Oscuros, Tipo: AVENTURA, Porcentaje De Descuento: 20.0%
+   Atracciones Incluidas: Mordor, Bosque Negro, 
+   Tiempo Total: 7.0, Precio Final: 22
+
+2) Atraccion Moria, Tiempo: 2.0, Costo: 10, Tipo: AVENTURA
+
+3) PromocionAbsoluta: Elfos, Tipo :DEGUSTACION
+   Atracciones Incluidas: La Comarca, Lothlorien, 
+   Tiempo Total: 7.5, Precio Total: 36
+
+4) Atraccion Erebor, Tiempo: 3.0, Costo: 12, Tipo: PAISAJE

@@ -1,2 +1,9 @@
-Usuario: Daniela, Presupuesto: 0, Tiempo Disponible: 0.5, Atraccion Favorita: PAISAJE
-[Atraccion Erebor, Costo: 12, Tiempo: 3.0, Cupo: 28, tipo: PAISAJE, Atraccion La Comarca, Costo: 3, Tiempo: 6.5, Cupo: 148, tipo: DEGUSTACION]
+Usuario: Daniela
+Tipo de atracción preferida: PAISAJE
+Presupuesto Disponible: 5, Tiempo Disponible: 2.5
+
+COMPRO:
+
+1) PromocionAxB: Hombres, Tipo : PAISAJE
+    Atracciones Incluidas: Minas Tirith, Abismo de Helm, Erebor, 
+    Tiempo Total: 7.5, Precio Total: 10

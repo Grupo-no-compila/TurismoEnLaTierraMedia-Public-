@@ -18,10 +18,10 @@ public class PromocionPorcentual extends Promocion {
 	@Override
 	public int getCosto() {
 		double precioARedondear = 0;
+		precioFinal = 0;
 		for (int i = 0; i < super.atracciones.size(); i++) {
 			precioFinal += super.atracciones.get(i).getCosto();
-			precioARedondear = -((precioFinal*(porcentajeDescuento/100))-precioFinal);
-			
+			precioARedondear = -((precioFinal*(porcentajeDescuento/100))-precioFinal);			
 		}
 		return  (int) Math.round(precioARedondear);
 	}
@@ -33,16 +33,11 @@ public class PromocionPorcentual extends Promocion {
 		for(Atraccion a:atracciones) {
 			nombreDeLasAtracciones += a.getNombre() + ", ";
 		}
-		return "PromocionPorcentual: " + nombreDeLaPromo + ", Atracciones: " + nombreDeLasAtracciones
-				+ "Precio Final: " + this.getCosto() + ", Tipo: " + tipo + ", Tiempo Total: " + this.getTiempo()
-				+ ", Porcentaje De Descuento: " + porcentajeDescuento;
+		return "PromocionPorcentual: " + nombreDeLaPromo + ", Tipo: " + tipo + ", Porcentaje De Descuento: " + porcentajeDescuento + "%"
+				+ "\n" +"   Atracciones Incluidas: " + nombreDeLasAtracciones + "\n"
+				+ "   Tiempo Total: " + this.getTiempo() + ", Precio Final: " + this.getCosto() +  "\n" ;
+				
 	}
 	
-	@Override
-	public void restarCupo() {
-		for (Atraccion a : super.atracciones) {
-			a.restarCupo();
-		}
-	}
 	
 }

@@ -13,6 +13,7 @@ public class PromocionAxB extends Promocion {
 
 	@Override
 	public int getCosto() {
+		precioFinal = 0;
 		for (int i = 0; i < super.atracciones.size() - 1; i++) {
 			precioFinal += super.atracciones.get(i).getCosto();
 		}
@@ -25,15 +26,11 @@ public class PromocionAxB extends Promocion {
 		for(Atraccion a:atracciones) {
 			nombreDeLasAtracciones += a.getNombre() + ", ";
 		}
-		return "PromocionAxB: " + nombreDeLaPromo + ", Atracciones Incluidas: " + nombreDeLasAtracciones
-				+ "Tipo : " + tipo + ", Tiempo Total: " + this.getTiempo() + ", Precio Total: " + this.getCosto();
+		return "PromocionAxB: " + nombreDeLaPromo + ", Tipo : " + tipo + "\n " + 
+				"   Atracciones Incluidas: " + nombreDeLasAtracciones + "\n " 
+				+ "   Tiempo Total: " + this.getTiempo() + ", Precio Total: " + this.getCosto() + "\n" ;
 	}
 
-	@Override
-	public void restarCupo() {
-		for (Atraccion a : super.atracciones) {
-			a.restarCupo();
-		}
-	}
+	
 
 }

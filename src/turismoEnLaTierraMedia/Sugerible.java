@@ -7,6 +7,8 @@ public interface Sugerible {
 	
 	List <Sugerible> atraccionComprada = new LinkedList<Sugerible>();
 
+	
+	
 	public int getCosto();
 	
 	public TipoDeAtraccion getTipo();
@@ -20,6 +22,9 @@ public interface Sugerible {
 	public boolean esOContiene(Sugerible sugerencia);
 
 	public void restarCupo();
+	
+	@Override
+	public String toString();
 
 
 

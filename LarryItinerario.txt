@@ -1,2 +1,19 @@
-Usuario: Larry, Presupuesto: 4, Tiempo Disponible: 31.0, Atraccion Favorita: DEGUSTACION
-[Atraccion La Comarca, Costo: 3, Tiempo: 6.5, Cupo: 148, tipo: DEGUSTACION, Atraccion Lothlorien, Costo: 35, Tiempo: 1.0, Cupo: 28, tipo: DEGUSTACION, Atraccion Mordor, Costo: 25, Tiempo: 3.0, Cupo: 2, tipo: AVENTURA, Atraccion Erebor, Costo: 12, Tiempo: 3.0, Cupo: 28, tipo: PAISAJE, Atraccion Moria, Costo: 10, Tiempo: 2.0, Cupo: 4, tipo: AVENTURA, Atraccion Minas Tirith, Costo: 5, Tiempo: 2.5, Cupo: 22, tipo: PAISAJE, Atraccion Abismo de Helm, Costo: 5, Tiempo: 2.0, Cupo: 13, tipo: PAISAJE, Atraccion Bosque Negro, Costo: 3, Tiempo: 4.0, Cupo: 9, tipo: AVENTURA]
+Usuario: Larry
+Tipo de atracción preferida: DEGUSTACION
+Presupuesto Disponible: 22, Tiempo Disponible: 76.0
+
+COMPRO:
+
+1) PromocionAbsoluta: Elfos, Tipo :DEGUSTACION
+   Atracciones Incluidas: La Comarca, Lothlorien, 
+   Tiempo Total: 7.5, Precio Total: 36
+
+2) PromocionPorcentual: Oscuros, Tipo: AVENTURA, Porcentaje De Descuento: 20.0%
+   Atracciones Incluidas: Mordor, Bosque Negro, 
+   Tiempo Total: 7.0, Precio Final: 22
+
+3) PromocionAxB: Hombres, Tipo : PAISAJE
+    Atracciones Incluidas: Minas Tirith, Abismo de Helm, Erebor, 
+    Tiempo Total: 7.5, Precio Total: 10
+
+4) Atraccion Moria, Tiempo: 2.0, Costo: 10, Tipo: AVENTURA

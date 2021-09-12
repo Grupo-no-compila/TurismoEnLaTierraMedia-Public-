@@ -43,24 +43,20 @@ public class App {
 			System.out.println(p); // Recorre cada usuario de la lista y los imprime en consola
 		System.out.println("------------------------------------------------------------------\n");
 
-		// System.out.println("Atracciones compradas por cada usuario\n");
-
 		for (Usuario u : usuarios) {
-			System.out.println(u.getNombre() + ":\n");
+			System.out.println("\n" + u.getNombre() + ":\n");
 			sugeribles.sort(new ComparadorDeSugeribles(u)); // Ordena las atracciones segun preferencia del usuario
 
+			//System.out.println("Las sugerencias ordenadas para " + u.getNombre() + " son: \n");
+			//for (Sugerible s : sugeribles)
+			//	System.out.println(s);
+			//System.out.println("------------------------------------------------------------------\n");
+
 			for (Sugerible s : sugeribles) {
-				if (u.puedeCostear(s) && u.tieneTiempo(s) && !u.yaCompro(s) && s.hayCupo()) {
-
-					System.out.println(s); // Recorre cada atraccion(ya odenadas) e imprime la que el usuario puede
-											// pagar, si tiene tiempo y si NO compro esa atraccion anteriormente
+				if (u.puedeCostear(s) && u.tieneTiempo(s) && !u.yaCompro(s) && s.hayCupo())
 					u.comprarSugerible(s);
-					
-				}
-
 			}
-			System.out.println("------------------------------------------------------------------\n");
-			
+
 //  		JOptionPane.showInputDialog("Elegir una atraccion");
 		}
 		// for(Promocion p : promociones) System.out.println(p); //Recorre cada

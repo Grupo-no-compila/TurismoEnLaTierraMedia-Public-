@@ -1,2 +1,11 @@
-Usuario: Francisco, Presupuesto: 0, Tiempo Disponible: 1.0, Atraccion Favorita: PAISAJE
-[Atraccion Erebor, Costo: 12, Tiempo: 3.0, Cupo: 28, tipo: PAISAJE, Atraccion Minas Tirith, Costo: 5, Tiempo: 2.5, Cupo: 22, tipo: PAISAJE, Atraccion Bosque Negro, Costo: 3, Tiempo: 4.0, Cupo: 9, tipo: AVENTURA]
+Usuario: Francisco
+Tipo de atracción preferida: PAISAJE
+Presupuesto Disponible: 0, Tiempo Disponible: 1.0
+
+COMPRO:
+
+1) Atraccion Erebor, Tiempo: 3.0, Costo: 12, Tipo: PAISAJE
+
+2) Atraccion Minas Tirith, Tiempo: 2.5, Costo: 5, Tipo: PAISAJE
+
+3) Atraccion Bosque Negro, Tiempo: 4.0, Costo: 3, Tipo: AVENTURA
