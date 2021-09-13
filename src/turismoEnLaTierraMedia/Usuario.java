@@ -7,8 +7,7 @@ public class Usuario {
 	private int presupuesto;
 	private double tiempoDisponible;
 	private TipoDeAtraccion atraccionFavorita;
-	
-	private List <Atraccion> atraccionComprada;
+	protected List <Atraccion> atraccionComprada;
 	
 	
 	public Usuario(String nombre, int presupuesto, double tiempoDisponible, TipoDeAtraccion atraccionFavorita) {
