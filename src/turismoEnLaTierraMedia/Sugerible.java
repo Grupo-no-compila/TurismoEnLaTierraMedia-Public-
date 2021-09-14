@@ -1,6 +1,13 @@
 package turismoEnLaTierraMedia;
 
+import java.util.LinkedList;
+import java.util.List;
+
 public interface Sugerible {
+	
+	List <Sugerible> atraccionComprada = new LinkedList<Sugerible>();
+
+	
 	
 	public int getCosto();
 	
@@ -11,6 +18,14 @@ public interface Sugerible {
 	public boolean hayCupo();
 	
 	public boolean esPromocion();
+
+	public boolean esOContiene(Sugerible sugerencia);
+
+	public void restarCupo();
 	
+	@Override
+	public String toString();
+
+
 
 }

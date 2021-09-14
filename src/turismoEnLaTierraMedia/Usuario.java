@@ -1,5 +1,6 @@
 package turismoEnLaTierraMedia;
 
+import java.util.LinkedList;
 import java.util.List;
 
 public class Usuario {
@@ -7,9 +8,9 @@ public class Usuario {
 	private int presupuesto;
 	private double tiempoDisponible;
 	private TipoDeAtraccion atraccionFavorita;
-	protected List <Atraccion> atraccionComprada;
-	
-	
+	protected List<Sugerible> sugerenciasCompradas = new LinkedList<Sugerible>();
+	protected List<Atraccion> atraccionesCompradas = new LinkedList<Atraccion>();
+
 	public Usuario(String nombre, int presupuesto, double tiempoDisponible, TipoDeAtraccion atraccionFavorita) {
 		this.nombre = nombre;
 		this.presupuesto = presupuesto;
@@ -17,44 +18,65 @@ public class Usuario {
 		this.atraccionFavorita = atraccionFavorita;
 	}
 
-	public void comprarAtraccion(Atraccion atraccion) {
-		this.tiempoDisponible -= atraccion.getTiempo();
-		this.presupuesto -= atraccion.getCosto();
+	public void comprarSugerible(Sugerible s) {
+		this.tiempoDisponible -= s.getTiempo();
+		this.presupuesto -= s.getCosto();
+		s.restarCupo();
 		
+		sugerenciasCompradas.add(s);
+		if (s.esPromocion()) {
+			Promocion promo = (Promocion) s;
+			for (Atraccion a : promo.getAtracciones()) {
+				atraccionesCompradas.add(a);
+				System.out.println(a.getNombre() + a.getCupo());
+			}
+		} else {
+			Atraccion atraccion = (Atraccion) s;
+			atraccionesCompradas.add(atraccion);
+			System.out.println(atraccion.getNombre() + atraccion.getCupo());
+			
+		}
 	}
+
 	
-	public void comprarPromocion(Promocion promocion) {
-		this.tiempoDisponible -= promocion.getTiempo();
-		this.presupuesto -= promocion.getCosto();
-		
+	public boolean yaCompro(Sugerible sugerencia) {
+		for (Sugerible s : atraccionesCompradas) {
+			if (sugerencia.esOContiene(s)) 
+				return true;
+		}
+		return false;
 	}
-	
-	public boolean yaCompro(Atraccion atraccion) {
-		if(this.atraccionComprada == null) {
-			return false;
-		}else
-			return atraccionComprada.contains(atraccion);
+
+	public boolean tieneTiempo(Sugerible atraccion) {
+		return (atraccion.getTiempo() <= this.tiempoDisponible);
 	}
-	
-	public boolean tieneTiempo(Atraccion atraccion) {
-		return (atraccion.getTiempo()<= this.tiempoDisponible); 
+
+	public boolean puedeCostear(Sugerible atraccion) {
+		return (atraccion.getCosto() <= this.presupuesto);
 	}
-	
-	public boolean puedeCostear(Atraccion atraccion) {
-		return (atraccion.getCosto()<= this.presupuesto);
-	}
-	
+
 	public TipoDeAtraccion getTipoFavorito() {
-	return this.atraccionFavorita;
+		return this.atraccionFavorita;
 	}
+
 	public String getNombre() {
 		return this.nombre;
 	}
-	
+
 	@Override
 	public String toString() {
-		return "Usuario: " + nombre + ", Presupuesto: " + presupuesto + ", Tiempo Disponible: " + tiempoDisponible
-				+ ", Atraccion Favorita: " + atraccionFavorita;
+		return "Usuario: " + nombre + "\n" + "Tipo de atracción preferida: " + atraccionFavorita + "\n"
+				+ "Presupuesto Disponible: " + presupuesto + ", Tiempo Disponible: " + tiempoDisponible + "\n";
 	}
-	
+
+	public int getPresupuesto() {
+		// TODO Auto-generated method stub
+		return this.presupuesto;
+	}
+
+	public double getTiempoDisponible() {
+		// TODO Auto-generated method stub
+		return this.tiempoDisponible;
+	}
+
 }

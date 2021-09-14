@@ -1,0 +1,5 @@
+Usuario: Larry
+Tipo de atracción preferida: DEGUSTACION
+Presupuesto Disponible: 10, Tiempo Disponible: 10.0
+
+COMPRO:

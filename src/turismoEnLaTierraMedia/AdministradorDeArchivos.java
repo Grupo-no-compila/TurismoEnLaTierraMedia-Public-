@@ -10,27 +10,26 @@ import java.util.Scanner;
 
 public class AdministradorDeArchivos {
 	
-	public static List<Atraccion> leerAtracciones(){
-		File f = new File("atracciones.txt"); 	
+	private static List<Atraccion> promoAtracciones;
+
+	public static List<Atraccion> leerAtracciones() {
+		File f = new File("atracciones.txt");
 		Scanner sc;
 		String[] line;
-		List<Atraccion> atracciones = new LinkedList<Atraccion>(); 
-		
+		List<Atraccion> atracciones = new LinkedList<Atraccion>();
+
 		try {
 			sc = new Scanner(f);
-			
-			while(sc.hasNextLine()) {
+
+			while (sc.hasNextLine()) {
 				line = sc.nextLine().split(",");
-				
-				atracciones.add(
-						new Atraccion(
-								line[0],//nombre
-								Integer.valueOf(line[1]), //costo
-								Double.parseDouble(line[2]), //tiempo
-								Integer.valueOf(line[3]), //cupo
-								TipoDeAtraccion.valueOf(line[4]) //tipo
-								)
-							);
+
+				atracciones.add(new Atraccion(line[0], // nombre
+						Integer.valueOf(line[1]), // costo
+						Double.parseDouble(line[2]), // tiempo
+						Integer.valueOf(line[3]), // cupo
+						TipoDeAtraccion.valueOf(line[4]) // tipo
+				));
 				line = null;
 			}
 			sc.close();
@@ -39,30 +38,28 @@ public class AdministradorDeArchivos {
 		} catch (InputMismatchException e) {
 			System.err.println(e.getMessage());
 		}
-		
+
+		promoAtracciones = atracciones;
 		return atracciones;
 	}
-	
-	public static List<Usuario> leerUsuarios(){
+
+	public static List<Usuario> leerUsuarios() {
 		File f = new File("usuarios.txt");
 		Scanner sc;
 		String[] line;
 		List<Usuario> usuarios = new LinkedList<Usuario>();
-		
+
 		try {
 			sc = new Scanner(f);
-			
-			while(sc.hasNextLine()) {
+
+			while (sc.hasNextLine()) {
 				line = sc.nextLine().split(",");
-				
-				usuarios.add(
-						new Usuario(
-								line[0],//nombre
-								Integer.valueOf(line[1]), //costo
-								Double.parseDouble(line[2]), //tiempo
-								TipoDeAtraccion.valueOf(line[3]) //tipo
-								)
-							);
+
+				usuarios.add(new Usuario(line[0], // nombre
+						Integer.valueOf(line[1]), // costo
+						Double.parseDouble(line[2]), // tiempo
+						TipoDeAtraccion.valueOf(line[3]) // tipo
+				));
 				line = null;
 			}
 			sc.close();
@@ -71,17 +68,17 @@ public class AdministradorDeArchivos {
 		} catch (InputMismatchException e) {
 			System.err.println(e.getMessage());
 		}
-		
+
 		return usuarios;
 	}
-	
+
 	public static List<Promocion> leerPromociones() {
 		File f = new File("promociones.txt");
 		Scanner sc;
 		String[] line;
 		List<Promocion> promociones = new LinkedList<Promocion>();
 		List<Atraccion> atraccionesPromo = new LinkedList<Atraccion>();
-		List<Atraccion> listaDeAtracciones = leerAtracciones();
+		List<Atraccion> listaDeAtracciones = promoAtracciones;
 
 		try {
 			sc = new Scanner(f);
@@ -90,7 +87,7 @@ public class AdministradorDeArchivos {
 				line = sc.nextLine().split(",");
 
 				for (Atraccion a : listaDeAtracciones) {
-					for (int i = 3; i < line.length; i++) {
+					for (int i = 0; i < line.length; i++) {
 						if (a.getNombre().equals(line[i])) {
 							atraccionesPromo.add(a);
 						}
@@ -132,22 +129,28 @@ public class AdministradorDeArchivos {
 	}
 
 	public static void escribirItinerarioDeLosUsuarios(List<Usuario> usuarios) {
-		for(Usuario a : usuarios) {
-		File f = new File(a.getNombre() + "Itinerario.txt");
-		PrintWriter pw;
-		
-		try {
-			pw = new PrintWriter(f);
-			
-			pw.write(a.toString()+"\n"+ a.atraccionComprada);
-			
-			pw.close();
-		} catch (FileNotFoundException e) {
-			System.err.println(e.getMessage());
-		}	
+		for (Usuario a : usuarios) {
+			File f = new File(a.getNombre() + "Itinerario.txt");
+			PrintWriter pw;
+
+			try {
+				pw = new PrintWriter(f);
+
+				pw.write(a.toString() + "\n");
+
+				pw.write("COMPRO:" + "\n");
+
+				int i = 1;
+				for (Sugerible s : a.sugerenciasCompradas) {
+					pw.write("\n" + i + ") " + s.toString());
+					i++;
+				}
+
+				pw.close();
+			} catch (FileNotFoundException e) {
+				System.err.println(e.getMessage());
+			}
 		}
 	}
 
-
 }
-	
