@@ -22,7 +22,7 @@ public class PromocionAbsoluta extends Promocion {
 		for(Atraccion a:atracciones) {
 			nombreDeLasAtracciones += a.getNombre() + ", ";			
 		}
-		return "PromocionAbsoluta: " + nombreDeLaPromo + ", Tipo :" + tipo + "\n" 
+		return "PromocionAbsoluta: " + nombreDeLaPromo + ", Tipo: " + tipo + "\n" 
 				+ "   Atracciones Incluidas: " + nombreDeLasAtracciones + "\n" 
 				+ "   Tiempo Total: " + this.getTiempo() + ", Precio Total: " + this.getCosto() + "\n" ;
 	}

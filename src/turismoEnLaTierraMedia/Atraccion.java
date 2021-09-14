@@ -17,10 +17,14 @@ public class Atraccion implements Sugerible {
 		this.tipo = tipo;
 	}
 	
-
-	public int getCupo() {
-		return cupo;
+	public Atraccion(String nombre) {
+		this.nombre = nombre;
+		
 	}
+
+	//public int getCupo() {
+	//	return cupo;
+	//}
 
 	@Override
 	public boolean hayCupo() {

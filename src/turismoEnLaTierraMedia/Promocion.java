@@ -7,6 +7,8 @@ public abstract class Promocion implements Sugerible {
 	protected TipoDeAtraccion tipo;
 	protected double tiempoTotal;
 	protected String nombreDeLaPromo;
+	
+	
 
 	public Promocion(String nombreDeLaPromo, List<Atraccion> atraccion, TipoDeAtraccion tipo) {
 		this.nombreDeLaPromo = nombreDeLaPromo;
@@ -14,6 +16,8 @@ public abstract class Promocion implements Sugerible {
 		this.tipo = tipo;
 	}
 
+	
+	
 	@Override
 	public boolean esPromocion() {
 		return true;

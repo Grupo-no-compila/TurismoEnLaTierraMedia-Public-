@@ -7,6 +7,8 @@ public class Usuario {
 	private String nombre;
 	private int presupuesto;
 	private double tiempoDisponible;
+	private int monedasGastadas;
+	private double horasNecesarias;
 	private TipoDeAtraccion atraccionFavorita;
 	protected List<Sugerible> sugerenciasCompradas = new LinkedList<Sugerible>();
 	protected List<Atraccion> atraccionesCompradas = new LinkedList<Atraccion>();
@@ -17,10 +19,13 @@ public class Usuario {
 		this.tiempoDisponible = tiempoDisponible;
 		this.atraccionFavorita = atraccionFavorita;
 	}
+	
 
 	public void comprarSugerible(Sugerible s) {
 		this.tiempoDisponible -= s.getTiempo();
 		this.presupuesto -= s.getCosto();
+		this.monedasGastadas += s.getCosto();
+		this.horasNecesarias += s.getTiempo();
 		s.restarCupo();
 		
 		sugerenciasCompradas.add(s);
@@ -28,17 +33,25 @@ public class Usuario {
 			Promocion promo = (Promocion) s;
 			for (Atraccion a : promo.getAtracciones()) {
 				atraccionesCompradas.add(a);
-				System.out.println(a.getNombre() + a.getCupo());
+				//System.out.println(a.getNombre() + a.getCupo());
 			}
 		} else {
 			Atraccion atraccion = (Atraccion) s;
 			atraccionesCompradas.add(atraccion);
-			System.out.println(atraccion.getNombre() + atraccion.getCupo());
+			//System.out.println(atraccion.getNombre() + atraccion.getCupo());
 			
 		}
 	}
 
 	
+	public int getPresupuesto() {
+		return presupuesto;
+	}
+
+	public double getTiempoDisponible() {
+		return tiempoDisponible;
+	}
+
 	public boolean yaCompro(Sugerible sugerencia) {
 		for (Sugerible s : atraccionesCompradas) {
 			if (sugerencia.esOContiene(s)) 
@@ -66,7 +79,9 @@ public class Usuario {
 	@Override
 	public String toString() {
 		return "Usuario: " + nombre + "\n" + "Tipo de atracción preferida: " + atraccionFavorita + "\n"
-				+ "Presupuesto Disponible: " + presupuesto + ", Tiempo Disponible: " + tiempoDisponible + "\n";
+				+ "Monedas Gastadas: " + monedasGastadas + " monedas de oro" + ",  Tiempo necesario: " + horasNecesarias + " horas" + "\n"
+				+ "Presupuesto Disponible: " + presupuesto + " monedas de oro" + ", Tiempo Disponible: " + tiempoDisponible + " horas" + "\n"
+				;
 	}
 
 }
