@@ -23,6 +23,7 @@ public interface Sugerible {
 
 	public void restarCupo();
 	
+	public Atraccion getAtraccionGratis();
 	@Override
 	public String toString();
 

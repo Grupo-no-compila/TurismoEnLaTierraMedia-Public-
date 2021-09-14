@@ -29,44 +29,42 @@ public class App {
 																	// una lista
 		sugeribles.addAll(promociones);
 
-		System.out.println("Leer los archivos y crear las atracciones\n");
-		for (Atraccion a : atracciones)
-			System.out.println(a); // Recorre cada atraccion de la lista y las imprime en consola
-		System.out.println("------------------------------------------------------------------\n");
-
-		System.out.println("Leer los archivos y crear a los usuarios\n");
+		System.out.println("USUARIOS\n");
 		for (Usuario u : usuarios)
 			System.out.println(u); // Recorre cada usuario de la lista y los imprime en consola
 		System.out.println("------------------------------------------------------------------\n");
 
-		System.out.println("Leer los archivos y crear las promociones\n");
+		System.out.println("ATRACCIONES\n");
+		for (Atraccion a : atracciones)
+			System.out.println(a); // Recorre cada atraccion de la lista y las imprime en consola
+		System.out.println("------------------------------------------------------------------\n");
+
+		System.out.println("PROMOCIONES\n");
 		for (Promocion p : promociones)
 			System.out.println(p); // Recorre cada usuario de la lista y los imprime en consola
 		System.out.println("------------------------------------------------------------------\n");
 
 		for (Usuario u : usuarios) {
-			System.out.println("Usuario: " + u.getNombre());
-			System.out.println("\n");
-			System.out.println("Promociones sugeridas:");
+
+			System.out.println("********************\n");
+			System.out.println("USUARIO: " + u.getNombre());
 
 			sugeribles.sort(new ComparadorDeSugeribles(u));
+
 			for (Sugerible s1 : sugeribles) {
 
-				if (u.tieneTiempo(s1) && u.puedeCostear(s1) && !u.yaCompro(s1) && s1.hayCupo()) {
+				while (u.tieneTiempo(s1) && u.puedeCostear(s1) && !u.yaCompro(s1) && s1.hayCupo()) {
 					sugeriblesUsuario.add(s1);
-					System.out.println(sugeriblesUsuario.lastIndexOf(s1) + 1 + "-" + s1);
-				}
-			}
 
-			for (Sugerible ss : sugeriblesUsuario) {
-				int w = 1;
-				while (u.getPresupuesto() >= ss.getCosto() && u.getTiempoDisponible() >= ss.getTiempo()
-						&& !u.yaCompro(ss) && ss.hayCupo()) {
+					System.out.println("=============================================================\n");
+
+					System.out.println("ACTIVIDAD SUGERIDA:");
+
+					System.out.println(s1);
 
 					System.out.println("\n");
 
-					System.out.println(
-							"Por favor elija número de Sugerencia que desea comprar, para salir escriba '0' (cero): ");
+					System.out.println("Oprima 'S' para comprar o 'N' para continuar");
 
 					String opcion = "";
 
@@ -74,49 +72,31 @@ public class App {
 
 					opcion = entradaEscanerOpcion.nextLine(); // Invocamos un método sobre un objeto Scanner;
 
-					if (opcion.equals("0")) {
-						System.out.println("Tiempo disponible: " + u.getTiempoDisponible());
-						System.out.println("Presupuesto restante: " + u.getPresupuesto());
-						sugeriblesUsuario = new LinkedList<Sugerible>();
+					if (opcion.equals("n") || opcion.equals("N")) {
 						System.out.println("\n");
-						w = 0;
-						break;
-					}
-
-					if (Integer.parseInt(opcion) < 0 || Integer.parseInt(opcion) >= sugeriblesUsuario.size() + 1) {
-						System.out.println("Sugerencia no encontrada");
-						break;
-					}
-
-					for (Sugerible s2 : sugeribles) {
-
-						if (Integer.parseInt(opcion) == sugeriblesUsuario.lastIndexOf(s2) + 1 && u.tieneTiempo(s2)
-								&& u.puedeCostear(s2) && !u.yaCompro(s2) && s2.hayCupo())
-							u.comprarSugerible(s2);
-					}
-
-					System.out.println("Tiempo disponible: " + u.getTiempoDisponible());
-					System.out.println("Presupuesto restante: " + u.getPresupuesto());
-					System.out.println("\n");
-
-					sugeriblesUsuario = new LinkedList<Sugerible>();
-					sugeribles.sort(new ComparadorDeSugeribles(u));
-
-					for (Sugerible s3 : sugeribles) {
-
-						if (u.tieneTiempo(s3) && u.puedeCostear(s3) && !u.yaCompro(s3) && s3.hayCupo()) {
-							sugeriblesUsuario.add(s3);
-							System.out.println(sugeriblesUsuario.indexOf(s3) + 1 + "-" + s3);
-						}
 						AdministradorDeArchivos.escribirItinerarioDeLosUsuarios(usuarios);
+						break;
 					}
+					if (opcion.equals("s") || opcion.equals("S")) {
+						u.comprarSugerible(s1);
+						System.out.println("SUGERENCIA COMPRADA");
+						System.out.println("TIEMPO DISPONIBLE: " + u.getTiempoDisponible());
+						System.out.println("PRESUPUESTO RESTANTE: " + u.getPresupuesto());
+						AdministradorDeArchivos.escribirItinerarioDeLosUsuarios(usuarios);
+						continue;
+					}
+					if (!opcion.equals("s") || !opcion.equals("n") || opcion.equals("N") || opcion.equals("S")) {
+						System.out.println("Entrada incorrecta");
+						System.out.println("\n");
+						continue;
+					}
+
 				}
-				if (w == 0) {
-					break;
-				}
+
 			}
+			System.out.println("\n");
 
 		}
-		System.out.println("No hay más usuarios");
+		System.out.println("NO HAY MÁS USUARIOS");
 	}
 }

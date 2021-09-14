@@ -38,6 +38,13 @@ public class PromocionPorcentual extends Promocion {
 				+ "   Tiempo Total: " + this.getTiempo() + ", Precio Final: " + this.getCosto() +  "\n" ;
 				
 	}
+
+
+	@Override
+	public Atraccion getAtraccionGratis() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 	
 }

@@ -1,11 +1,8 @@
 Usuario: Daniela
 Tipo de atracción preferida: PAISAJE
-Presupuesto Disponible: 17, Tiempo Disponible: 10.5
+Monedas Gastadas: 12 monedas de oro,  Tiempo necesario: 3.0 horas
+Presupuesto Disponible: 8 monedas de oro, Tiempo Disponible: 17.0 horas
 
 COMPRO:
 
-1) PromocionAxB: Hombres, Tipo : PAISAJE
-    Atracciones Incluidas: Erebor, 
-    Tiempo Total: 3.0, Precio Total: 0
-
-2) Atraccion La Comarca, Tiempo: 6.5, Costo: 3, Cupo: 149, Tipo: DEGUSTACION
+1) Atraccion Erebor, Tiempo: 3.0, Costo: 12, Cupo: 1, Tipo: PAISAJE

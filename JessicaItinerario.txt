@@ -1,5 +1,6 @@
 Usuario: Jessica
 Tipo de atracción preferida: PAISAJE
-Presupuesto Disponible: 250, Tiempo Disponible: 20.0
+Monedas Gastadas: 0 monedas de oro,  Tiempo necesario: 0.0 horas
+Presupuesto Disponible: 250 monedas de oro, Tiempo Disponible: 20.0 horas
 
 COMPRO:

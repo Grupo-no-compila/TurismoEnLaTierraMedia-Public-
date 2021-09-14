@@ -12,11 +12,12 @@ public class AdministradorDeArchivos {
 	
 	private static List<Atraccion> promoAtracciones;
 
+	protected static List<Atraccion> atracciones = new LinkedList<Atraccion>();
+
 	public static List<Atraccion> leerAtracciones() {
 		File f = new File("atracciones.txt");
 		Scanner sc;
 		String[] line;
-		List<Atraccion> atracciones = new LinkedList<Atraccion>();
 
 		try {
 			sc = new Scanner(f);
@@ -73,23 +74,23 @@ public class AdministradorDeArchivos {
 	}
 
 	public static List<Promocion> leerPromociones() {
-		File f = new File("promociones.txt");
+		File f = new File("PromocionesPruebaIgna.txt");
 		Scanner sc;
 		String[] line;
 		List<Promocion> promociones = new LinkedList<Promocion>();
 		List<Atraccion> atraccionesPromo = new LinkedList<Atraccion>();
-		List<Atraccion> listaDeAtracciones = promoAtracciones;
+
 
 		try {
 			sc = new Scanner(f);
 
 			while (sc.hasNextLine()) {
 				line = sc.nextLine().split(",");
-
-				for (Atraccion a : listaDeAtracciones) {
-					for (int i = 0; i < line.length; i++) {
+				for (int i = 4; i < line.length; i++) {
+					for (Atraccion a : atracciones) {
 						if (a.getNombre().equals(line[i])) {
 							atraccionesPromo.add(a);
+							break;
 						}
 					}
 				}
@@ -109,7 +110,15 @@ public class AdministradorDeArchivos {
 					));
 				}
 				if (line[0].equals("AxB")) {
-					promociones.add(new PromocionAxB(line[1], // nombre
+					Atraccion atraccionGratis = null;
+					for (Atraccion a : atracciones) {
+						if (a.getNombre().equals(line[3])) {
+							atraccionGratis = a;
+							break;
+						}
+
+					}
+					promociones.add(new PromocionAxB(line[1], atraccionGratis, // nombre
 							atraccionesPromo, // atracciones
 							TipoDeAtraccion.valueOf(line[2]) // tipo de atraccion
 					));

@@ -17,10 +17,14 @@ public class Atraccion implements Sugerible {
 		this.tipo = tipo;
 	}
 	
-
-	public int getCupo() {
-		return cupo;
+	public Atraccion(String nombre) {
+		this.nombre = nombre;
+		
 	}
+
+	//public int getCupo() {
+	//	return cupo;
+	//}
 
 	@Override
 	public boolean hayCupo() {
@@ -82,6 +86,12 @@ public class Atraccion implements Sugerible {
 		Atraccion other = (Atraccion) obj;
 		return costo == other.costo && Objects.equals(nombre, other.nombre)
 				&& Double.doubleToLongBits(tiempo) == Double.doubleToLongBits(other.tiempo) && tipo == other.tipo;
+	}
+
+	@Override
+	public Atraccion getAtraccionGratis() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

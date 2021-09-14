@@ -1,5 +1,6 @@
 Usuario: Francisco
 Tipo de atracción preferida: PAISAJE
-Presupuesto Disponible: 20, Tiempo Disponible: 10.5
+Monedas Gastadas: 0 monedas de oro,  Tiempo necesario: 0.0 horas
+Presupuesto Disponible: 20 monedas de oro, Tiempo Disponible: 10.5 horas
 
 COMPRO:
