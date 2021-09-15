@@ -33,9 +33,12 @@ public class PromocionPorcentual extends Promocion {
 		for(Atraccion a:atracciones) {
 			nombreDeLasAtracciones += a.getNombre() + ", ";
 		}
-		return "PromocionPorcentual: " + nombreDeLaPromo + ", Tipo: " + tipo + ", Porcentaje De Descuento: " + porcentajeDescuento + "%"
+		return "PromocionPorcentual: " + nombreDeLaPromo + ", Tipo: " + tipo + 
+				", Porcentaje De Descuento: " + porcentajeDescuento + "%"
 				+ "\n" +"   Atracciones Incluidas: " + nombreDeLasAtracciones + "\n"
-				+ "   Tiempo Total: " + this.getTiempo() + ", Precio Final: " + this.getCosto() +  "\n" ;
+				+ "   Tiempo Total: " + this.getTiempo() + " horas" + 
+				", Precio Final: " + this.getCosto() + " monedas" + "\n" + 
+				"   Ahorro Comprando La Promo: " + this.getAhorro() +" monedas" + "\n" ;
 				
 	}
 
@@ -45,6 +48,15 @@ public class PromocionPorcentual extends Promocion {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
-	
+
+
+	@Override
+	public int getAhorro() {
+		int precioReal= 0;
+		for(Atraccion a:super.atracciones) {
+		precioReal += a.getCosto();
+		} 
+		return  (precioReal - this.getCosto());
+	}
+
 }

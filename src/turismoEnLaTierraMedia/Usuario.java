@@ -73,8 +73,8 @@ public class Usuario {
 	@Override
 	public String toString() {
 		return "Usuario: " + nombre + "\n" + "Tipo de atracción preferida: " + atraccionFavorita + "\n"
-				+ "Monedas Gastadas: " + monedasGastadas + " monedas de oro" + ",  Tiempo necesario: " + horasNecesarias + " horas" + "\n"
-				+ "Presupuesto Disponible: " + presupuesto + " monedas de oro" + ", Tiempo Disponible: " + tiempoDisponible + " horas" + "\n"
+				+ " Monedas Gastadas: " + monedasGastadas + " monedas de oro" + ",  Tiempo necesario: " + horasNecesarias + " horas" + "\n"
+				+ " Presupuesto Disponible: " + presupuesto + " monedas de oro" + ", Tiempo Disponible: " + tiempoDisponible + " horas" + "\n"
 				;
 	}
 

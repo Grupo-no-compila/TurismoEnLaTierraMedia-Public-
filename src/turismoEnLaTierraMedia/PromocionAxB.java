@@ -35,9 +35,11 @@ public class PromocionAxB extends Promocion {
 		for (Atraccion a : atracciones) {
 			nombreDeLasAtracciones += a.getNombre() + ", ";
 		}
-		return "PromocionAxB: " + nombreDeLaPromo + ", Tipo : " + tipo + "\n " + "  Atracciones Incluidas: " + atraccionGratis.getNombre()
-				+ ", " + nombreDeLasAtracciones + "\n " + "  Tiempo Total: " + this.getTiempo() + ", Precio Total: "
-				+ this.getCosto() + "\n";
+		return "PromocionAxB: " + nombreDeLaPromo + ", Tipo : " + tipo + "\n " + 
+		"  Atracciones Incluidas: " + this.atraccionGratis.getNombre()+ ", " + 
+		nombreDeLasAtracciones + "\n " + "  Tiempo Total: " + this.getTiempo() + 
+		" horas" + ", Precio Total: " + this.getCosto() + " monedas" + "\n" + 
+		"   Ahorro Comprando La Promo: " + this.getAhorro() + " monedas" + "\n";
 	}
 	
 	@Override
@@ -66,5 +68,25 @@ public class PromocionAxB extends Promocion {
 		return false;
 	}
 
+	@Override
+	public int getAhorro() {
+		return this.atraccionGratis.getCosto();
+	}
+	
+	@Override
+	public void restarCupo() {
+		super.restarCupo();
+		this.atraccionGratis.restarCupo();
+		
+		}
+	
+	@Override
+	public boolean hayCupo() {
+		for (Atraccion a : this.atracciones) {
+			if (!a.hayCupo() || !this.atraccionGratis.hayCupo())
+				return false;
+		}		
+		return true;
+	}
 
 }

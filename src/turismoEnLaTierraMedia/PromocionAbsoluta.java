@@ -24,7 +24,9 @@ public class PromocionAbsoluta extends Promocion {
 		}
 		return "PromocionAbsoluta: " + nombreDeLaPromo + ", Tipo: " + tipo + "\n" 
 				+ "   Atracciones Incluidas: " + nombreDeLasAtracciones + "\n" 
-				+ "   Tiempo Total: " + this.getTiempo() + ", Precio Total: " + this.getCosto() + "\n" ;
+				+ "   Tiempo Total: " + this.getTiempo()+ " horas " + ", Precio Total: " + 
+				this.getCosto() + " monedas" + "\n" + "   Ahorro Comprando La Promo: " + 
+				this.getAhorro()+ " monedas" + "\n" ;
 	}
 
 	@Override
@@ -32,6 +34,14 @@ public class PromocionAbsoluta extends Promocion {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
+
+	@Override
+	public int getAhorro() {
+		int precioReal= 0;
+		for(Atraccion a:super.atracciones) {
+		precioReal += a.getCosto();
+		} 
+		return  precioReal - this.precioFinal; 
+	}
 	
 }

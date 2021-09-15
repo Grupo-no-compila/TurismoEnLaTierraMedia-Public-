@@ -62,7 +62,8 @@ public class Atraccion implements Sugerible {
 
 	@Override
 	public String toString() {
-		return "Atraccion " + nombre + ", Tiempo: " + tiempo + ", Costo: " + costo + ", Cupo: " + cupo +  ", Tipo: " + tipo + "\n";
+		return "Atraccion " + nombre + ", Tiempo: " + tiempo + ", Costo: " +
+	            costo + ", Cupo: " + cupo +  ", Tipo: " + tipo + "\n";
 	}
 
 	@Override

@@ -40,17 +40,17 @@ Usuario u1;
 	}
 	
 	
-	/*
+	
 	@Test
 	public void testCompila() {
 		System.out.println(listaAtracciones);
-		System.out.println(listaPromo);
-		System.out.println(p1);
-		System.out.println(p2);
-		System.out.println(p3);
-		System.out.println(p4);
-		System.out.println(p5);
-	}*/
+		//System.out.println(listaPromo);
+		//System.out.println(p1);
+		//System.out.println(p2);
+		//System.out.println(p3);
+		//System.out.println(p4);
+		
+	}
 	
 	@Test
 	public void testCosto() {
@@ -85,9 +85,15 @@ Usuario u1;
 		assertTrue(p1.esOContiene(a2));
 		assertFalse(p1.esOContiene(a4));
 		assertTrue(p3.esOContiene(a2));
-		
-		
-	} 
+	}
+	
+	@Test
+	public void testAhorro() {
+		assertEquals(4, p1.getAhorro());
+		assertEquals(4, p2.getAhorro());
+		assertEquals(4, p3.getAhorro());
+		assertEquals(7, p4.getAhorro());
+	}
 	
 	
 	@Test 

@@ -7,8 +7,7 @@ public interface Sugerible {
 	
 	List <Sugerible> atraccionComprada = new LinkedList<Sugerible>();
 
-	
-	
+		
 	public int getCosto();
 	
 	public TipoDeAtraccion getTipo();

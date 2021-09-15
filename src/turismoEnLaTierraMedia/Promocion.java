@@ -65,5 +65,7 @@ public abstract class Promocion implements Sugerible {
 	public List<Atraccion> getAtracciones() {
 		return atracciones;
 	}
-
+	
+	public abstract int getAhorro();
+	
 }
